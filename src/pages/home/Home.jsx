@@ -1,9 +1,47 @@
+import axios from 'axios';
+import React, { useState } from 'react';
+import Header from "../../components/header/Header";
 
-import React from 'react'
+const APP_ID = "a12acc8e";
+const APP_KEY = "8b13576705494d9319f5f220ace43ac7";
 
 const Home = () => {
+  const [query, setQuery] = useState("");
+  const [food, setFood] = useState();
+  const mealTypes = ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"];
+  const [meal, setMeal] = useState(mealTypes[0].toLowerCase());
+
+  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`;
+
+  const getData = async () => {
+    if (query) 
+    {
+      const result = await axios.get(url);
+      setFood(result.data.hits);
+    } 
+    else
+    {
+      console.log("Please fill the form");
+    }
+  }
+
+
+
   return (
-    <div>Home</div>
+    <div>
+      <Header 
+      setQuery={setQuery}
+      getData={getData}
+      mealTypes={mealTypes}
+      setMeal={setMeal}
+      />
+
+
+
+
+
+
+    </div>
   )
 }
 
