@@ -1,41 +1,44 @@
+
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, {useState} from 'react'
 import Header from "../../components/header/Header";
 
-const APP_ID = "a12acc8e";
-const APP_KEY = "8b13576705494d9319f5f220ace43ac7";
+
+const APP_ID = "bfbb3efc"; 
+const APP_KEY = "43faeee790f26cd82b28050d3031619d";
+/* buraya kendi id ve key imizi yaziyoruz*/
+
 
 const Home = () => {
-  const [query, setQuery] = useState("");
-  const [food, setFood] = useState();
-  const mealTypes = ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"];
-  const [meal, setMeal] = useState(mealTypes[0].toLowerCase());
-
-  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`;
-
+const [query, setQuery]=useState("");
+const[food, setFood]=useState();
+const mealTypes=["Breakfast", "Lunch","Dinner","Snack","Teatime"]
+const [meal,setMeal]=useState(mealTypes[0].toLowerCase());
+  
+const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`;
+  
   const getData = async () => {
-    if (query) 
-    {
+    if(query){ 
       const result = await axios.get(url);
-      setFood(result.data.hits);
-    } 
-    else
-    {
-      console.log("Please fill the form");
-    }
+    setFood(result.data.hits)
+   
+  
+  }else {
+    console.log("please fill the form");
   }
+      
 
 
-
+  }
+  
   return (
     <div>
-      <Header 
-      setQuery={setQuery}
-      getData={getData}
-      mealTypes={mealTypes}
-      setMeal={setMeal}
-      />
+<Header  setQuery={setQuery}
+getData={getData}
+mealTypes={mealTypes}
+setMeal={setMeal}
 
+/>
 
 
 

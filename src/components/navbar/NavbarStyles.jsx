@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 // import { ExternalLink } from "react-external-link";
@@ -74,8 +75,8 @@ background: #e1f1dd;
     flex-direction: column;
     width: 100%;
     /* gap:2px; */
-    /* props olarak, menubar=true geldi mesela */
-    max-height:${({menubar})=>(menubar ? "300px" : " 0")}
+    /* props olarak, osman=true geldi mesela */
+    max-height:${({osman})=>(osman?"300px":"0")}
     /* 3 çizgiye ilk tıklandığında 300 px açılsın, sonraki tıklamada kapansın */
     /* max-height:300px yazarsak hep açık olur */
     /* transition: max-height 0.3s ease-in; */
