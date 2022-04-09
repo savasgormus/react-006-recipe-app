@@ -11,7 +11,8 @@ const Navbar = () => {
         <i>{"<Clarusway>"}</i>
         <span>recipe</span>
       </Logo>
-      <Hamburger onClick={() => setIsOpen(!isOpen)}>
+      <Hamburger onClick={() => setIsOpen(!isOpen)}
+      onMouseUp={()=>sessionStorage.clear()}>
         {/* hamburger o anda ne durumdaysa, tıklandığında tersi olacak, false ise true..ve sonra Menu bunu style a props la gönder */}
         {/* <GiHamburgerMenu /> */}
         <span />
