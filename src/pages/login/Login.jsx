@@ -1,26 +1,26 @@
 import React from 'react'
-import { LoginContainer, StyledImg, FormContainer, Header, StyledForm, StyledInput, StyledButton } from "./LoginStyles"
-import meal from "../../assets/meal.svg"
-
+import { FormContainer, Header, LoginContainer, StyledButton, StyledForm, StyledImg, StyledInput } from './LoginStyles'
+import meal from '../../assets/meal.svg';
 const Login = () => {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // console.log("submit");
-    window.location.href="/home";
+  const user = {
+    username:"user"
   }
-
-
-
+  
+  const siteyeGir = (e) => {
+    e.preventDefault();
+    sessionStorage.setItem("user", JSON.stringify(user))
+    window.location.href = "/home";
+  }
   return (
     <LoginContainer>
       <FormContainer>
         <StyledImg src={meal} />
-        <Header>{"<Clarusway/>"}</Header>
-        <StyledForm onsubmit={handleSubmit}>
-          <StyledInput type="text" placeholder="username" required></StyledInput>
-          <StyledInput type="text" placeholder="password" required></StyledInput>,
-          <StyledButton type='submit'>Login</StyledButton>
+        <Header> {"<Clarusway/>"}Recipe </Header>
+        <StyledForm onSubmit={siteyeGir}  >
+          <StyledInput type="text" placeholder="username" required />
+          <StyledInput type="password" placeholder="password" required />
+          <StyledButton type="submit">Login</StyledButton>
         </StyledForm>
       </FormContainer>
     </LoginContainer>
